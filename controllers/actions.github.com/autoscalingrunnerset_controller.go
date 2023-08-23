@@ -451,6 +451,10 @@ func (r *AutoscalingRunnerSetReconciler) createRunnerScaleSet(ctx context.Contex
 						Name: autoscalingRunnerSet.Spec.RunnerScaleSetName,
 						Type: "System",
 					},
+					{
+						Name: "testlabel",
+						Type: "System",
+					},
 				},
 				RunnerSetting: actions.RunnerSetting{
 					Ephemeral:     true,
