@@ -6,31 +6,6 @@ on:
   push:
     branches:
       - runnerset-multiple-labels
-    paths-ignore:
-      - '**.md'
-      - '.github/actions/**'
-      - '.github/ISSUE_TEMPLATE/**'
-      - '.github/workflows/e2e-test-dispatch-workflow.yaml'
-      - '.github/workflows/gha-e2e-tests.yaml'
-      - '.github/workflows/arc-publish.yaml'
-      - '.github/workflows/arc-publish-chart.yaml'
-      - '.github/workflows/gha-publish-chart.yaml'
-      - '.github/workflows/arc-release-runners.yaml'
-      - '.github/workflows/global-run-codeql.yaml'
-      - '.github/workflows/global-run-first-interaction.yaml'
-      - '.github/workflows/global-run-stale.yaml'
-      - '.github/workflows/arc-update-runners-scheduled.yaml'
-      - '.github/workflows/validate-arc.yaml'
-      - '.github/workflows/arc-validate-chart.yaml'
-      - '.github/workflows/gha-validate-chart.yaml'
-      - '.github/workflows/arc-validate-runners.yaml'
-      - '.github/dependabot.yml'
-      - '.github/RELEASE_NOTE_TEMPLATE.md'
-      - 'runner/**'
-      - '.gitignore'
-      - 'PROJECT'
-      - 'LICENSE'
-      - 'Makefile'
 
 # https://docs.github.com/en/rest/overview/permissions-required-for-github-apps
 permissions:
@@ -124,7 +99,7 @@ jobs:
           context: .
           file: ./Dockerfile
           platforms: linux/amd64,linux/arm64
-          build-args: VERSION=canary-"${{ github.ref }}"
+          build-args: VERSION=canary"
           push: ${{ env.PUSH_TO_REGISTRIES }}
           tags: |
             ghcr.io/${{ steps.resolve_parameters.outputs.repository_owner }}/gha-runner-scale-set-controller:canary
