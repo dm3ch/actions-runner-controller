@@ -99,7 +99,7 @@ jobs:
           context: .
           file: ./Dockerfile
           platforms: linux/amd64,linux/arm64
-          build-args: VERSION=canary"
+          build-args: VERSION=canary
           push: ${{ env.PUSH_TO_REGISTRIES }}
           tags: |
             ghcr.io/${{ steps.resolve_parameters.outputs.repository_owner }}/gha-runner-scale-set-controller:canary
